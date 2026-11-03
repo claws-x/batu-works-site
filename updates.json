@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "id": "issue-1",
+    "date": "2026-11-03",
+    "kind": "company",
+    "title": "BATU WORKS official website is live",
+    "summary": "Our public studio website is now available with detailed pages for Element Atlas and Daily Quotes, our development approach, privacy information, and a company updates section. Both apps remain in development and are not yet publicly released.",
+    "url": "https://claws-x.github.io/batu-works-site/"
+  }
+]
