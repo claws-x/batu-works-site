@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://claws-x.github.io/batu-works-site/sitemap.xml
