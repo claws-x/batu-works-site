@@ -16,12 +16,39 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-s
 </style>
 </head>
 <body>
-<header><div class="wrap"><nav aria-label="Main navigation"><a class="brand" href="#home">BATU WORKS</a><div class="navlinks"><a href="#work">Work</a><a href="#approach">Approach</a><a href="#about">About</a></div></nav></div></header>
+<header><div class="wrap"><nav aria-label="Main navigation"><a class="brand" href="#home">BATU WORKS</a><div class="navlinks"><a href="#work">Work</a><a href="#approach">Approach</a><a href="#about">About</a><a href="#updates">Updates</a></div></nav></div></header>
 <main id="home">
 <div class="wrap hero"><div class="eyebrow">Independent software studio · Japan</div><h1>Build what <em>matters.</em></h1><p class="lead">Small, thoughtful software for real human problems. Built with human judgment, AI-assisted engineering, and a commitment to earning trust.</p><div class="actions"><a class="btn primary" href="#work">Explore our work</a><a class="btn" href="#approach">How we build</a></div></div>
 <section id="work"><div class="wrap"><div class="eyebrow">Our work</div><h2>Products in development</h2><div class="grid"><article class="card"><span class="num">01 / EDUCATION</span><h3>Element Atlas</h3><p>An interactive way to explore the periodic table. In development; not yet announced as released.</p></article><article class="card"><span class="num">02 / EVERYDAY TOOLS</span><h3>Daily Quotes</h3><p>A simple, considered daily reading experience. In development and validation.</p></article><article class="card"><span class="num">03 / WHAT'S NEXT</span><h3>New ideas</h3><p>We investigate everyday problems before committing to solutions.</p></article></div></div></section>
 <section id="approach"><div class="wrap"><div class="eyebrow">Our approach</div><h2>Human direction. AI execution. Independent verification.</h2><p class="copy">BATU WORKS is exploring a new way to build: a human-led studio supported by specialized AI collaborators. We value clear decisions, measured experiments, testable outcomes, and a written history of what worked—and what did not.</p></div></section>
 <section id="about"><div class="wrap"><div class="eyebrow">Our belief</div><p class="statement">“Great products don't start with more features. They start with a problem worth solving.”</p><p class="copy">BATU WORKS is an early-stage independent software initiative based in Japan. We are building deliberately, one verified step at a time.</p></div></section>
+
+<section id="updates"><div class="wrap"><div class="eyebrow">Latest from BATU WORKS</div><h2>Company updates</h2><p class="copy" id="updates-status">Verified news, releases, and product improvements will appear here automatically.</p><div class="grid" id="updates-grid" aria-live="polite" style="margin-top:28px"></div></div></section>
 </main>
 <footer><div class="wrap foot"><span>© 2026 BATU WORKS. All rights reserved.</span><span>Independent by design. · 日本発の小さなソフトウェアスタジオ</span><a href="privacy.html">Privacy</a> · <a href="support.html">Support</a></div></footer>
+<script>
+(async function(){
+  const grid=document.getElementById('updates-grid');
+  const status=document.getElementById('updates-status');
+  try{
+    const res=await fetch('updates.json',{cache:'no-store'});
+    if(!res.ok)throw new Error('feed unavailable');
+    const items=await res.json();
+    if(!Array.isArray(items))throw new Error('invalid feed');
+    if(!items.length)return;
+    status.textContent='Latest verified announcements from the studio.';
+    items.slice(0,6).forEach(item=>{
+      if(!item||typeof item.title!=='string'||typeof item.summary!=='string')return;
+      const card=document.createElement('article');card.className='card';
+      const meta=document.createElement('span');meta.className='num';
+      meta.textContent=String(item.kind||'NEWS').toUpperCase()+' / '+String(item.date||'');
+      const title=document.createElement('h3');title.textContent=item.title;
+      const summary=document.createElement('p');summary.textContent=item.summary;
+      card.append(meta,title,summary);
+      try{const u=new URL(item.url);if(u.protocol==='https:'){const a=document.createElement('a');a.href=u.href;a.rel='noopener noreferrer';a.target='_blank';a.textContent='Read verified source';a.style.color='var(--accent)';card.append(a);}}catch(e){}
+      grid.append(card);
+    });
+  }catch(e){status.textContent='Company updates are temporarily unavailable.';}
+})();
+</script>
 </body></html>
