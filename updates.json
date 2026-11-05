@@ -1,5 +1,13 @@
 [
   {
+    "id": "studio-delivery-2026-11-06",
+    "date": "2026-11-06",
+    "kind": "company",
+    "title": "Studio delivery and handoff verified",
+    "summary": "We verified that a fresh collaborator can resume a project from its recorded version, build results and next steps. The studio's delivery process pairs human direction with engineering and independent review, followed by on-device acceptance and a separate release decision.",
+    "url": "https://claws-x.github.io/batu-works-site/studio.html#handover"
+  },
+  {
     "id": "issue-1",
     "date": "2026-11-03",
     "kind": "company",
