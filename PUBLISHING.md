@@ -6,9 +6,9 @@ The public website repository holds public-facing material. Website changes are 
 
 Ben explicitly approves the reviewed revision before it is merged or deployed. The technical review verifies the content and tests. Release approval is a separate decision. Confirm the configured GitHub Pages source before a release, and record the deployed revision and public URL after verification.
 
-## Legacy announcement workflow
+## Announcement changes
 
-The existing issue-based workflow accepts an owner-authored request and an `approved` field. A caller able to post as the owner can supply both, so this is not independent release authorization. Keep announcement changes in the reviewed PR process until there is a separate, verifiable approval mechanism. Treat public issue bodies as public material.
+Update `updates.json` through a reviewed PR. The Issue-triggered publisher and its deployment hook were removed. Public issues and approval fields in issue text cannot authorize an announcement. GitHub Pages deploys the approved `main` revision after a qualifying push, or on an authorized manual redeployment.
 
 ## Verification and rollback
 

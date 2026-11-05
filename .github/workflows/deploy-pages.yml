@@ -8,9 +8,6 @@ on:
       - 'support.html'
       - 'updates.json'
       - '.github/workflows/deploy-pages.yml'
-  workflow_run:
-    workflows: ['Publish verified company updates']
-    types: [completed]
   workflow_dispatch:
 permissions:
   contents: read
@@ -21,7 +18,6 @@ concurrency:
   cancel-in-progress: false
 jobs:
   deploy:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
