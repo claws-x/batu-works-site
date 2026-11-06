@@ -1,11 +1,19 @@
 [
   {
+    "id": "cloud-ai-review-2026-11-06",
+    "date": "2026-11-06",
+    "kind": "company",
+    "title": "Optional Groq and Gemini connections enter validation",
+    "summary": "Groq and Gemini responded to basic local Mac API calls. The new BATU WORKS cloud model adapter passed six offline checks and independent engineering review; authenticated end-to-end use and function calling through the new entry point remain unverified.",
+    "url": "https://claws-x.github.io/batu-works-site/studio.html#status"
+  },
+  {
     "id": "studio-delivery-2026-11-06",
     "date": "2026-11-06",
     "kind": "company",
     "title": "Studio delivery and handoff verified",
     "summary": "We verified that a fresh collaborator can resume a project from its recorded version, build results and next steps. The studio's delivery process pairs human direction with engineering and independent review, followed by on-device acceptance and a separate release decision.",
-    "url": "https://claws-x.github.io/batu-works-site/studio.html#handover"
+    "url": "https://claws-x.github.io/batu-works-site/studio.html#status"
   },
   {
     "id": "issue-1",
