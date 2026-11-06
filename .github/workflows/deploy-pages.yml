@@ -3,10 +3,12 @@ on:
   push:
     branches: [main]
     paths:
-      - 'index.html'
-      - 'privacy.html'
-      - 'support.html'
+      - '*.html'
+      - 'ja/**'
+      - 'zh/**'
+      - 'assets/**'
       - 'updates.json'
+      - 'scripts/check_site.py'
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 permissions:
